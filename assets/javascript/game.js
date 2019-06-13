@@ -1,18 +1,16 @@
 var letterChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-var win = 0; //starting point
+var win = 0;
 var losses = 0;
 var numberGuesses = 0;
-var userGuesses = [ ]; //user to enter dynamically - quotation marks can be used, too
+var userGuesses = [ ];
 var playerGuess;
 var computerChoice;
 
 
 document.onkeyup = function(event) {
-    playerGuess = event.key; //event.key captures player's key
-    //for logic of game - others (above) for global scope
+    playerGuess = event.key; 
 
-    //console.log (playerGuess);
     if (numberGuesses == 0 ) {
         computerChoice = letterChoice[Math.floor(Math.random() * letterChoice.length)];
         userGuesses = [];
@@ -29,13 +27,14 @@ document.onkeyup = function(event) {
             }
         }
     } else {
-        win ++; //++ means increment by 1
+        win ++;
         numberGuesses = 0;
     }
-     //taking record of guesses (keys) player has pushed and sends it to that array (on Line 8)
-    //console.log (userGuesses); //console log as an array - see Line 8
 
-    var element  = document.getElementById();
+    document.getElementById("win").innerHTML = win;
+    document.getElementById("losses").innerHTML = losses;
+    document.getElementById("numberGuesses").innerHTML = numberGuesses;
+    document.getElementById("userGuesses").innerHTML = userGuesses;
     console.log("userGuesses: " + userGuesses);
     console.log("chances: " + numberGuesses);
     console.log("user guess: " + playerGuess);
